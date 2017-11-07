@@ -1,10 +1,10 @@
-
+// require npm packages
 var Table = require('cli-table');
 var inquirer = require('inquirer');
 var mysql = require('mysql');
 var colors = require('colors');
 
-
+// connect to local host sql database
 var connection = mysql.createConnection({
 	host: "localhost",
   	port: 3306,
@@ -37,7 +37,7 @@ function displayData() {
 			[res[i].item_id, res[i].product_name, res[i].department_name, res[i].price, res[i].stock_quantity]
 		);
 	}
-
+	// console log new table to command line
 	console.log(table.toString());
 
     inquirePrompt ();
@@ -137,6 +137,7 @@ function adminPassword (){
 	    if (myPassword.password == 'admin') {
 	    	adminPrompt ();
 		} else {
+			// if the password is wrond, print this to console
 			console.log("Sorry, thats not the correct password.");
 			inquirePrompt ();
 		}
